@@ -3,7 +3,6 @@ import image1 from "./assests/image1.jpg";
 import { auth } from "./Firebase.jsx";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { Link } from "react-router-dom";
-import SignUp from "./SignUp.js";
 const Login = () => {
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
@@ -40,7 +39,7 @@ const Login = () => {
                 type="email"
                 placeholder="Enter your email"
                 className="w-full px-4 py-2 bg-gray-100 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-                omchange={(e) => setemail(e.target.value)}
+                onChange={(e) => setemail(e.target.value)}
               />
             </div>
 
@@ -50,7 +49,7 @@ const Login = () => {
                 type="password"
                 placeholder="Enter your password"
                 className="w-full px-4 py-2 bg-gray-100 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-                omchange={(e) => setpassword(e.target.value)}
+                onCchange={(e) => setpassword(e.target.value)}
               />
             </div>
 
@@ -86,7 +85,7 @@ const Login = () => {
           <p className="text-center text-sm text-gray-500 mt-4">
             Don't Have Any Account Yet?{" "}
             <Link to="/" className="text-blue-500 hover:underline">
-              <SignUp />
+              SignUp
             </Link>
           </p>
         </div>
