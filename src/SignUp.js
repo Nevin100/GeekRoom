@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import image1 from "./assests/image1.jpg";
 import { auth } from "./Firebase.jsx";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import Login from "./Login.js";
 import { Link } from "react-router-dom";
 const SignUp = () => {
   const [email, setemail] = useState("");
@@ -11,7 +10,7 @@ const SignUp = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      createUserWithEmailAndPassword(auth, email, password);
+      await createUserWithEmailAndPassword(auth, email, password);
       alert(`Account Created`);
     } catch (error) {
       console.log(error);
@@ -40,7 +39,7 @@ const SignUp = () => {
                 type="email"
                 placeholder="Enter your email"
                 className="w-full px-4 py-2 bg-gray-100 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-                omchange={(e) => setemail(e.target.value)}
+                onChange={(e) => setemail(e.target.value)}
               />
             </div>
 
@@ -50,7 +49,7 @@ const SignUp = () => {
                 type="password"
                 placeholder="Enter your password"
                 className="w-full px-4 py-2 bg-gray-100 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-                omchange={(e) => setpassword(e.target.value)}
+                onChange={(e) => setpassword(e.target.value)}
               />
             </div>
 
@@ -80,7 +79,7 @@ const SignUp = () => {
           <p className="text-center text-sm text-gray-500 mt-4">
             Already Have an Account ??{" "}
             <Link to="/login" className="text-blue-500 hover:underline">
-              <Login />
+              Login
             </Link>
           </p>
         </div>
